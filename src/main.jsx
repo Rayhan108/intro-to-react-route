@@ -12,6 +12,8 @@ import FirstPage from './Component/FirstPage/FirstPage';
 import About from './Component/About/About';
 import Help from './Component/Help/Help';
 import Contact from './Component/Contact/Contact';
+import Friends from './Component/Friends/Friends';
+import FriendsDetails from './Component/FriendDetails/FriendsDetails';
 
 const router =createBrowserRouter([
   
@@ -28,6 +30,17 @@ const router =createBrowserRouter([
     {
       path: "/about",
       element: <About />,
+    },
+    {
+path:"/friends",
+element:<Friends></Friends>,
+loader:()=>fetch('https://jsonplaceholder.typicode.com/users')
+    },
+    {
+path:"friends/:friendId",
+element:<FriendsDetails></FriendsDetails>,
+loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/users/${params.friendId}`)
+
     },
     {
       path: "/help",
