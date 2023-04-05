@@ -16,6 +16,7 @@ import Friends from './Component/Friends/Friends';
 import FriendsDetails from './Component/FriendDetails/FriendsDetails';
 import Posts from './Component/Posts/Posts';
 import PostDetails from './Component/PostDetails/PostDetails';
+import Notfound from './Component/Notfound/Notfound';
 
 const router =createBrowserRouter([
   
@@ -63,6 +64,10 @@ loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/users/${params.fr
     {
       path: "/contact",
       element: <Contact />,
+    },
+    {
+      path: "*",
+      element:<Notfound></Notfound>,
     },
   ],
 }])
